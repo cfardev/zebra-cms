@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "../providers/convex-client-provider";
 import { Navbar } from "../components/navbar";
+import { Footer } from "../components/footer";
 
 const interSans = Inter({
   variable: "--font-inter-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <ConvexClientProvider>
           <Navbar />
           {children}
+          <Footer />
         </ConvexClientProvider>
       </body>
     </html>

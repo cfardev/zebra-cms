@@ -2,6 +2,10 @@
 
 import { Marquee } from "@/components/marquee";
 import { Portfolio } from "@/components/portfolio";
+import { Statistics } from "@/components/statistics";
+import { InstagramGallery } from "@/components/instagram-gallery";
+import { CentroAmericaSection } from "@/components/centro-america-section";
+import { BrandsSection } from "@/components/brands-section";
 
 export default function Home() {
   return (
@@ -23,9 +27,15 @@ export default function Home() {
         </p>
 
         <Portfolio />
-
       </section>
 
+      <Statistics />
+
+      <InstagramGallery />
+
+      <CentroAmericaSection />
+
+      <BrandsSection />
     </>
   );
 }

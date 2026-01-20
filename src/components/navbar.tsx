@@ -33,7 +33,7 @@ export function Navbar() {
 
     return (
         <nav className={cn(
-            "fixed top-0 left-0 right-0 transition-all duration-300 z-50 py-2",
+            "fixed top-0 left-0 right-0 transition-all duration-300 z-999 py-2",
             isRoot ? (isScrolled ? "bg-black" : "bg-transparent") : "bg-black"
         )}>
             <div className="container mx-auto px-4">
