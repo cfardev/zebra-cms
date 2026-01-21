@@ -25,7 +25,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { SignOutButton, useClerk, useUser } from "@clerk/nextjs"
-import { Briefcase, Building2, LayoutDashboard, MessageSquare, Tag, Users } from "lucide-react"
+import { Briefcase, Building2, LayoutDashboard, LogOut, MessageSquare, Tag, User, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -132,7 +132,7 @@ export default function AdminLayout({
           </SidebarContent>
         </Sidebar>
         <div className="flex flex-1 flex-col">
-          <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-6 shadow-sm">
+          <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 px-6 shadow-sm">
             <div className="flex items-center gap-4">
               <SidebarTrigger className="md:hidden" />
               <Breadcrumbs />
@@ -141,34 +141,62 @@ export default function AdminLayout({
               <DropdownMenuTrigger asChild>
                 <button
                   type="button"
-                  className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring hover:shadow-sm"
                 >
-                  <Avatar className="h-8 w-8">
+                  <Avatar className="h-9 w-9 ring-2 ring-background ring-offset-2 ring-offset-background transition-all hover:ring-primary/50">
                     <AvatarImage src={user.imageUrl} alt={user.fullName || ""} />
-                    <AvatarFallback className="text-xs">
+                    <AvatarFallback className="text-xs font-semibold bg-primary text-primary-foreground">
                       {user.firstName?.[0] || ""}
                       {user.lastName?.[0] || ""}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="hidden md:block text-sm font-medium">
-                    {user.fullName || user.emailAddresses[0]?.emailAddress}
-                  </span>
+                  <div className="hidden md:flex flex-col items-start">
+                    <span className="text-sm font-semibold text-foreground">
+                      {user.fullName || "Usuario"}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {user.emailAddresses[0]?.emailAddress}
+                    </span>
+                  </div>
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel className="font-semibold">Mi Cuenta</DropdownMenuLabel>
-                <DropdownMenuSeparator />
+              <DropdownMenuContent align="end" className="w-72 p-2 shadow-lg border-2">
+                <div className="px-3 py-3 mb-2 rounded-lg bg-muted/50">
+                  <div className="flex items-center gap-3">
+                    <Avatar className="h-10 w-10 ring-2 ring-background">
+                      <AvatarImage src={user.imageUrl} alt={user.fullName || ""} />
+                      <AvatarFallback className="text-sm font-semibold bg-primary text-primary-foreground">
+                        {user.firstName?.[0] || ""}
+                        {user.lastName?.[0] || ""}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col min-w-0 flex-1">
+                      <p className="text-sm font-semibold text-foreground truncate">
+                        {user.fullName || "Usuario"}
+                      </p>
+                      <p className="text-xs text-muted-foreground truncate">
+                        {user.emailAddresses[0]?.emailAddress}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <DropdownMenuSeparator className="my-2" />
                 <DropdownMenuItem
                   onClick={() => openUserProfile()}
-                  className="cursor-pointer transition-colors"
+                  className="cursor-pointer rounded-md px-3 py-2.5 gap-3 transition-colors hover:bg-accent focus:bg-accent"
                 >
-                  Mi Perfil
+                  <User className="h-4 w-4" />
+                  <span>Mi Perfil</span>
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
+                <DropdownMenuSeparator className="my-2" />
+                <DropdownMenuItem asChild className="p-0">
                   <SignOutButton>
-                    <button type="button" className="w-full text-left">
-                      Cerrar Sesión
+                    <button
+                      type="button"
+                      className="w-full flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors hover:bg-destructive/10 focus:bg-destructive/10 text-destructive focus:text-destructive"
+                    >
+                      <LogOut className="h-4 w-4" />
+                      <span>Cerrar Sesión</span>
                     </button>
                   </SignOutButton>
                 </DropdownMenuItem>
