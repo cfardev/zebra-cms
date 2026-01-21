@@ -6,11 +6,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Separator } from "@/components/ui/separator"
 import {
   Sidebar,
   SidebarContent,
@@ -24,7 +22,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { SignOutButton, useClerk, useUser } from "@clerk/nextjs"
+import { useClerk, useUser } from "@clerk/nextjs"
 import { Briefcase, Building2, LayoutDashboard, LogOut, MessageSquare, Tag, User, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -70,9 +68,14 @@ export default function AdminLayout({
   children: React.ReactNode
 }) {
   const { user, isLoaded } = useUser()
-  const { openUserProfile } = useClerk()
+  const { openUserProfile, signOut } = useClerk()
   const pathname = usePathname()
   const router = useRouter()
+
+  const handleSignOut = async () => {
+    await signOut()
+    router.push("/sign-in")
+  }
 
   if (!isLoaded) {
     return (
@@ -189,16 +192,12 @@ export default function AdminLayout({
                   <span>Mi Perfil</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="my-2" />
-                <DropdownMenuItem asChild className="p-0">
-                  <SignOutButton>
-                    <button
-                      type="button"
-                      className="w-full flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors hover:bg-destructive/10 focus:bg-destructive/10 text-destructive focus:text-destructive"
-                    >
-                      <LogOut className="h-4 w-4" />
-                      <span>Cerrar Sesión</span>
-                    </button>
-                  </SignOutButton>
+                <DropdownMenuItem
+                  onClick={handleSignOut}
+                  className="cursor-pointer rounded-md px-3 py-2.5 gap-3 transition-colors text-red-600"
+                >
+                  <LogOut className="h-4 w-4 text-red-600" />
+                  <span className="text-red-600">Cerrar Sesión</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
