@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { ConvexClientProvider } from "@/providers/convex-client-provider"
 import { api } from "convex/_generated/api"
 import { useQuery } from "convex/react"
-import { Briefcase, Building2, MessageSquare, Tag, Users } from "lucide-react"
+import { Award, Briefcase, Building2, MessageSquare, Tag, Users } from "lucide-react"
 import Link from "next/link"
 
 function DashboardContent() {
@@ -14,6 +14,7 @@ function DashboardContent() {
   const servicesCount = useQuery(api.services.count)
   const clientsCount = useQuery(api.clients.count)
   const categoriesCount = useQuery(api.categories.count)
+  const brandsCount = useQuery(api.brands.count)
   const leadsCount = useQuery(api.leads.count)
   const unreadLeadsCount = useQuery(api.leads.unreadCount)
 
@@ -51,6 +52,14 @@ function DashboardContent() {
       bgColor: "bg-orange-50",
     },
     {
+      title: "Marcas",
+      value: brandsCount ?? 0,
+      icon: Award,
+      href: "/admin/brands",
+      color: "text-indigo-600",
+      bgColor: "bg-indigo-50",
+    },
+    {
       title: "Leads",
       value: leadsCount ?? 0,
       icon: MessageSquare,
@@ -61,7 +70,7 @@ function DashboardContent() {
     },
   ]
 
-  const isLoading = teamCount === undefined || servicesCount === undefined || clientsCount === undefined || categoriesCount === undefined || leadsCount === undefined
+  const isLoading = teamCount === undefined || servicesCount === undefined || clientsCount === undefined || categoriesCount === undefined || brandsCount === undefined || leadsCount === undefined
 
   return (
     <div className="space-y-8">

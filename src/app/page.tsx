@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
+        className="relative w-full min-h-[60vh] md:h-screen bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/hero-image.jpg')",
         }}
@@ -19,9 +19,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
       </section>
 
-      <section className="container mx-auto py-16 mt-16 flex flex-col gap-8">
+      <section className="container mx-auto px-4 py-8 md:py-16 mt-8 md:mt-16 flex flex-col gap-6 md:gap-8">
         <Marquee text={"*PLANTEAMIENTO * ESTRATEGIA * EJECUCIÓN * RESULTADOS *"} />
-        <p className="text-lg text-foreground/80 text-center">
+        <p className="text-base md:text-lg text-foreground/80 text-center px-4">
           Zebra Producciones somos una agencia de marketing que nos integramos a tu equipo para
           crear soluciones efectivas, creativas y llenas de impacto. Construimos tus ideas,
           celebramos tus logros y solucionamos juntos los retos. No somos solo proveedores: somos

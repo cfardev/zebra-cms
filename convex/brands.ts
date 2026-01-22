@@ -4,28 +4,20 @@ import { mutation, query } from "./_generated/server"
 export const list = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db.query("clients").order("desc").collect()
-  },
-})
-
-export const getLatest = query({
-  args: { limit: v.optional(v.number()) },
-  handler: async (ctx, args) => {
-    const limit = args.limit ?? 4
-    return await ctx.db.query("clients").order("desc").take(limit)
+    return await ctx.db.query("brands").order("desc").collect()
   },
 })
 
 export const count = query({
   args: {},
   handler: async (ctx) => {
-    const clients = await ctx.db.query("clients").collect()
-    return clients.length
+    const brands = await ctx.db.query("brands").collect()
+    return brands.length
   },
 })
 
 export const get = query({
-  args: { id: v.id("clients") },
+  args: { id: v.id("brands") },
   handler: async (ctx, args) => {
     return await ctx.db.get(args.id)
   },
@@ -34,8 +26,8 @@ export const get = query({
 export const create = mutation({
   args: {
     name: v.string(),
-    imageUrl: v.optional(v.string()),
-    categoryId: v.id("clientCategories"),
+    tagline: v.string(),
+    logoUrl: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity()
@@ -43,10 +35,10 @@ export const create = mutation({
       throw new Error("Unauthenticated")
     }
     const now = Date.now()
-    return await ctx.db.insert("clients", {
+    return await ctx.db.insert("brands", {
       name: args.name,
-      imageUrl: args.imageUrl,
-      categoryId: args.categoryId,
+      tagline: args.tagline,
+      logoUrl: args.logoUrl,
       createdAt: now,
       updatedAt: now,
     })
@@ -55,10 +47,10 @@ export const create = mutation({
 
 export const update = mutation({
   args: {
-    id: v.id("clients"),
+    id: v.id("brands"),
     name: v.optional(v.string()),
-    imageUrl: v.optional(v.string()),
-    categoryId: v.optional(v.id("clientCategories")),
+    tagline: v.optional(v.string()),
+    logoUrl: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity()
@@ -74,7 +66,7 @@ export const update = mutation({
 })
 
 export const remove = mutation({
-  args: { id: v.id("clients") },
+  args: { id: v.id("brands") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity()
     if (!identity) {

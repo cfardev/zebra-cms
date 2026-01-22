@@ -11,7 +11,7 @@ export function InstagramGallery() {
   return (
     <section className="w-full overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex gap-4">
+        <div className="grid grid-cols-2 md:flex md:gap-4 gap-2 md:gap-4">
           {images.map((image) => (
             <a
               key={image.src}
@@ -20,7 +20,7 @@ export function InstagramGallery() {
               rel="noopener noreferrer"
               className="w-full"
             >
-              <img src={image.src} alt={image.alt} className="w-full h-64 object-cover" />
+              <img src={image.src} alt={image.alt} className="w-full h-32 md:h-64 object-cover" />
             </a>
           ))}
         </div>

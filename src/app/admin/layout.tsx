@@ -23,7 +23,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { useClerk, useUser } from "@clerk/nextjs"
-import { Briefcase, Building2, LayoutDashboard, LogOut, MessageSquare, Tag, User, Users } from "lucide-react"
+import { Award, Briefcase, Building2, LayoutDashboard, LogOut, MessageSquare, Tag, User, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -54,6 +54,11 @@ const menuItems = [
     title: "Categorías",
     url: "/admin/categories",
     icon: Tag,
+  },
+  {
+    title: "Marcas",
+    url: "/admin/brands",
+    icon: Award,
   },
   {
     title: "Leads",
