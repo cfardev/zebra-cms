@@ -1,18 +1,12 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { Menu, Search, X } from "lucide-react"
+import { Menu, Search } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetClose,
-  SheetTitle,
-} from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 
 const navItems = [
   { href: "/", label: "Inicio" },
@@ -84,29 +78,19 @@ export function Navbar() {
               <Search className="w-6 h-6 text-white" />
             </button>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              {!mobileMenuOpen && (
-                <SheetTrigger asChild>
-                  <button
-                    type="button"
-                    className="text-white p-2 flex items-center justify-center"
-                    aria-label="Abrir menú"
-                  >
-                    <Menu className="w-6 h-6" />
-                  </button>
-                </SheetTrigger>
-              )}
-              {mobileMenuOpen && (
-                <SheetClose asChild>
-                  <button
-                    type="button"
-                    className="text-white p-2 flex items-center justify-center"
-                    aria-label="Cerrar menú"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-                </SheetClose>
-              )}
-              <SheetContent side="right" className="w-[80vw] sm:w-[300px] bg-black border-white/20 [&>button]:hidden flex flex-col">
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  className="text-white p-2 flex items-center justify-center"
+                  aria-label="Abrir menú"
+                >
+                  <Menu className="w-6 h-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent
+                side="right"
+                className="w-[80vw] sm:w-[300px] bg-black border-white/20 flex flex-col"
+              >
                 <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
                 <nav className="flex flex-col items-center justify-center gap-6 flex-1">
                   {navItems.map((item) => {
