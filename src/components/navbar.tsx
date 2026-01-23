@@ -42,13 +42,14 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between gap-4 md:gap-16">
-          <Link href="/" className="shrink-0">
+          <Link href="/" className="shrink-0" aria-label="Zebra Producciones - Ir al inicio">
             <Image
               src="/logo-white.svg"
-              alt="Zebra"
+              alt="Zebra Producciones - Logo"
               width={100}
               height={40}
               className="w-14 h-auto md:w-auto md:h-auto"
+              priority
             />
           </Link>
           {/* Desktop Navigation */}
@@ -68,13 +69,13 @@ export function Navbar() {
                 </Link>
               )
             })}
-            <button type="button">
+            <button type="button" aria-label="Buscar">
               <Search className="w-6 h-6 text-white" />
             </button>
           </div>
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-3">
-            <button type="button" className="p-2 flex items-center justify-center">
+            <button type="button" className="p-2 flex items-center justify-center" aria-label="Buscar">
               <Search className="w-6 h-6 text-white" />
             </button>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>

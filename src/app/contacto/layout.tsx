@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Contacto",
   description:
     "Hablemos, tomemos café, hagamos brainstorming. Ponte en contacto con Zebra Producciones y hagamos manada.",
+  alternates: {
+    canonical: `${baseUrl}/contacto`,
+  },
   openGraph: {
     title: "Contacto - Zebra Producciones",
     description:

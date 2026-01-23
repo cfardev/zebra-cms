@@ -11,7 +11,7 @@ export default function PortfolioPage() {
         <div className="relative w-full h-[50vh] md:h-[65vh]">
           <Image
             src="/images/portfolio-image.jpg"
-            alt="Nuestros Clientes"
+            alt="Portfolio - Nuestros Clientes - Zebra Producciones"
             fill
             className="object-cover"
             priority

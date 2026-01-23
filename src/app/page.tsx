@@ -1,11 +1,43 @@
-"use client"
-
+import type { Metadata } from "next"
 import { BrandsSection } from "@/components/brands-section"
 import { CentroAmericaSection } from "@/components/centro-america-section"
 import { InstagramGallery } from "@/components/instagram-gallery"
 import { Marquee } from "@/components/marquee"
 import { Portfolio } from "@/components/portfolio"
 import { Statistics } from "@/components/statistics"
+import { StructuredData } from "@/components/structured-data"
+
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+
+export const metadata: Metadata = {
+  title: "Inicio",
+  description:
+    "Zebra Producciones somos una agencia de marketing que nos integramos a tu equipo para crear soluciones efectivas, creativas y llenas de impacto. Más de 3000 proyectos completados.",
+  alternates: {
+    canonical: baseUrl,
+  },
+  openGraph: {
+    title: "Zebra Producciones - Agencia de Marketing y Publicidad",
+    description:
+      "Agencia de marketing que se integra a tu equipo para crear soluciones efectivas, creativas y llenas de impacto. Más de 3000 proyectos completados.",
+    url: baseUrl,
+    images: [
+      {
+        url: "/images/hero-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Zebra Producciones - Agencia de Marketing y Publicidad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zebra Producciones - Agencia de Marketing y Publicidad",
+    description:
+      "Agencia de marketing que se integra a tu equipo para crear soluciones efectivas, creativas y llenas de impacto.",
+    images: ["/images/hero-image.jpg"],
+  },
+}
 
 export default function Home() {
   return (
@@ -15,6 +47,7 @@ export default function Home() {
         style={{
           backgroundImage: "url('/images/hero-image.jpg')",
         }}
+        aria-label="Hero section"
       >
         <div className="absolute inset-0 bg-black/50" />
       </section>
@@ -30,6 +63,25 @@ export default function Home() {
 
         <Portfolio />
       </section>
+
+      <StructuredData
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Zebra Producciones",
+          url: baseUrl,
+          description:
+            "Agencia de marketing que se integra a tu equipo para crear soluciones efectivas, creativas y llenas de impacto.",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${baseUrl}/?s={search_term_string}`,
+            },
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
 
       <Statistics />
 

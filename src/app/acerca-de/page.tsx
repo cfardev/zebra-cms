@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import TeamSection from "@/components/team-section"
 import ValoresSection from "@/components/valores-section"
 import Image from "next/image"
+import { StructuredData } from "@/components/structured-data"
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
 
@@ -9,6 +10,9 @@ export const metadata: Metadata = {
   title: "Acerca de Nosotros",
   description:
     "Somos tu equipo extendido. Con más de 3000 proyectos completados en 8 años, construimos estrategias y diseñamos experiencias que elevan tu marca.",
+  alternates: {
+    canonical: `${baseUrl}/acerca-de`,
+  },
   openGraph: {
     title: "Acerca de Nosotros - Zebra Producciones",
     description:
@@ -40,7 +44,7 @@ export default function AcercaDePage() {
         <div className="relative w-full h-[50vh] md:h-[65vh]">
           <Image
             src="/images/about_image.jpg"
-            alt="Acerca de nosotros"
+            alt="Acerca de Zebra Producciones - Equipo de marketing y publicidad"
             fill
             className="object-cover"
             priority
@@ -101,6 +105,23 @@ export default function AcercaDePage() {
 
       <ValoresSection />
       <TeamSection />
+
+      <StructuredData
+        data={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "Acerca de Zebra Producciones",
+          description:
+            "Somos tu equipo extendido. Con más de 3000 proyectos completados en 8 años, construimos estrategias y diseñamos experiencias que elevan tu marca.",
+          url: `${baseUrl}/acerca-de`,
+          mainEntity: {
+            "@type": "Organization",
+            name: "Zebra Producciones",
+            description:
+              "Agencia de marketing que se integra a tu equipo para crear soluciones efectivas, creativas y llenas de impacto.",
+          },
+        }}
+      />
     </>
   )
 }

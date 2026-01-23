@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Portfolio - Nuestros Clientes",
   description:
     "Descubre los proyectos que hemos completado junto a nuestra manada. Más de 3000 proyectos que demuestran nuestra creatividad y ejecución.",
+  alternates: {
+    canonical: `${baseUrl}/portfolio`,
+  },
   openGraph: {
     title: "Portfolio - Nuestros Clientes - Zebra Producciones",
     description:

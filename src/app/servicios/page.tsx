@@ -3,6 +3,7 @@ import { ServicesSection } from "@/components/services-section"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { StructuredData } from "@/components/structured-data"
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
 
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
   title: "Nuestros Servicios",
   description:
     "Soluciones integrales que transforman ideas en experiencias memorables. Descubre lo que podemos hacer por tu marca.",
+  alternates: {
+    canonical: `${baseUrl}/servicios`,
+  },
   openGraph: {
     title: "Nuestros Servicios - Zebra Producciones",
     description:
@@ -41,7 +45,7 @@ export default function ServiciosPage() {
         <div className="relative w-full h-[50vh] md:h-[65vh]">
           <Image
             src="/images/service_image.jpg"
-            alt="Nuestros servicios"
+            alt="Nuestros Servicios - Zebra Producciones"
             fill
             className="object-cover"
             priority
@@ -109,6 +113,24 @@ export default function ServiciosPage() {
           </div>
         </div>
       </section>
+
+      <StructuredData
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Agencia de Marketing y Publicidad",
+          provider: {
+            "@type": "Organization",
+            name: "Zebra Producciones",
+          },
+          description:
+            "Soluciones integrales que transforman ideas en experiencias memorables. Descubre lo que podemos hacer por tu marca.",
+          areaServed: {
+            "@type": "Place",
+            name: "Centroamérica y Caribe",
+          },
+        }}
+      />
     </>
   )
 }

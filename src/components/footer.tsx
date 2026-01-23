@@ -5,20 +5,20 @@ export function Footer() {
   return (
     <footer className="w-full bg-black text-white py-8 md:py-12">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
           {/* Logo Column */}
-          <div className="flex flex-col gap-4 w-full md:w-auto">
-            <Image 
-              src="/footer/logo_footer.svg" 
-              alt="Zebra" 
-              width={160} 
+          <div className="flex flex-col gap-4 w-full md:w-auto items-center md:items-start">
+            <Image
+              src="/footer/logo_footer.svg"
+              alt="Zebra Producciones - Logo"
+              width={160}
               height={100}
               className="w-32 md:w-auto"
             />
           </div>
 
           {/* Servicio al cliente Column */}
-          <div className="flex flex-col gap-3 md:gap-4 text-left">
+          <div className="flex flex-col gap-3 md:gap-4 text-left items-center md:items-start">
             <h3 className="text-white font-semibold text-sm md:text-base">Servicio al cliente:</h3>
             <p className="text-white/70 text-xs md:text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -37,7 +37,7 @@ export function Footer() {
           </div>
 
           {/* Explore Column */}
-          <div className="flex flex-col gap-3 md:gap-4 text-left">
+          <div className="flex flex-col gap-3 md:gap-4 text-left items-center md:items-start">
             <h3 className="text-white font-semibold text-sm md:text-base">Explore:</h3>
             <nav className="flex flex-col gap-2">
               <Link href="/acerca-de" className="text-white/70 hover:text-white text-xs md:text-sm">
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
 
           {/* Social Media Column */}
-          <div className="flex flex-col gap-3 md:gap-4 items-start md:items-end text-left md:text-right w-full md:w-auto">
+          <div className="flex flex-col gap-3 md:gap-4 items-center md:items-end text-left md:text-right w-full md:w-auto">
             <h3 className="text-white font-semibold text-sm md:text-base">Social Media:</h3>
             <div className="flex gap-4 justify-start md:justify-end">
               <a

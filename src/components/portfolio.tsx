@@ -56,7 +56,7 @@ export function Portfolio() {
                 {client.imageUrl ? (
                   <Image
                     src={client.imageUrl}
-                    alt={client.name}
+                    alt={`Proyecto de ${client.name} - Portfolio Zebra Producciones`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"

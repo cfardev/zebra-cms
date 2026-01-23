@@ -1,9 +1,9 @@
 export function InstagramGallery() {
   const images = [
-    { src: "/images/instagram/image 6.jpg", alt: "Zebra branding" },
-    { src: "/images/instagram/image 7.jpg", alt: "Zebra profile" },
-    { src: "/images/instagram/image 8.jpg", alt: "Zebra portrait" },
-    { src: "/images/instagram/image 9.jpg", alt: "Zebra character" },
+    { src: "/images/instagram/image 6.jpg", alt: "Proyecto de branding de Zebra Producciones" },
+    { src: "/images/instagram/image 7.jpg", alt: "Perfil de proyecto de Zebra Producciones" },
+    { src: "/images/instagram/image 8.jpg", alt: "Retrato de proyecto de Zebra Producciones" },
+    { src: "/images/instagram/image 9.jpg", alt: "Personaje de proyecto de Zebra Producciones" },
   ]
 
   const instagramUrl = "https://www.instagram.com/zebraproducciones.cr/"

@@ -58,7 +58,7 @@ export function BrandsSection() {
                   <div className="relative h-12 w-12 md:h-16 md:w-16 mx-auto">
                     <Image
                       src={brand.logoUrl}
-                      alt={brand.name}
+                      alt={`Logo de ${brand.name}${brand.tagline ? ` - ${brand.tagline}` : ""}`}
                       fill
                       className="object-contain"
                     />

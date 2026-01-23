@@ -31,10 +31,17 @@ export const metadata: Metadata = {
     "branding",
     "estrategia de marketing",
     "Zebra Producciones",
+    "agencia de publicidad",
+    "marketing en Centroamérica",
+    "diseño de marca",
+    "estrategia digital",
   ],
   authors: [{ name: "Zebra Producciones" }],
   creator: "Zebra Producciones",
   publisher: "Zebra Producciones",
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
     type: "website",
     locale: "es_ES",
@@ -48,7 +55,7 @@ export const metadata: Metadata = {
         url: "/images/hero-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Zebra Producciones",
+        alt: "Zebra Producciones - Agencia de Marketing y Publicidad",
       },
     ],
   },
@@ -70,6 +77,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    // Agregar cuando tengas Google Search Console
+    // google: "verification-code",
+  },
 }
 
 export default function RootLayout({
@@ -77,9 +88,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Zebra Producciones",
+    url: baseUrl,
+    logo: `${baseUrl}/logo.svg`,
+    description:
+      "Agencia de marketing que se integra a tu equipo para crear soluciones efectivas, creativas y llenas de impacto.",
+    sameAs: [
+      // Agregar redes sociales cuando estén disponibles
+      // "https://www.facebook.com/zebraproducciones",
+      // "https://www.instagram.com/zebraproducciones",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      availableLanguage: ["Spanish"],
+    },
+  }
+
   return (
     <ClerkProvider localization={esES}>
       <html lang="es">
+        <head>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="theme-color" content="#7660A0" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+        </head>
         <body className={`${interSans.variable} ${interSans.variable} antialiased`}>
           <Script
             id="disable-service-worker"

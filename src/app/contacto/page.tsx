@@ -59,7 +59,7 @@ export default function ContactoPage() {
         <div className="relative w-full h-[50vh] md:h-[65vh]">
           <Image
             src="/images/contact-image.png"
-            alt="Contacto"
+            alt="Contacto - Zebra Producciones - Seamos manada"
             fill
             className="object-cover object-center grayscale"
             priority
@@ -184,7 +184,7 @@ export default function ContactoPage() {
             <div className="max-h-[720px] overflow-hidden md:col-span-1">
               <Image
                 src="/images/contact.png"
-                alt="Zebra"
+                alt="Zebra Producciones - Contacto"
                 width={700}
                 height={500}
                 className="w-full h-auto grayscale"

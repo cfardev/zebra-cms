@@ -10,7 +10,7 @@ export function CentroAmericaSection() {
           <div className="flex justify-center md:justify-start">
             <Image
               src="/images/centro-america.png"
-              alt="Mapa de Centroamérica"
+              alt="Mapa de Centroamérica - Zebra Producciones es una agencia regional"
               width={600}
               height={400}
               className="w-full max-w-lg h-auto"
