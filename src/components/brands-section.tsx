@@ -27,10 +27,10 @@ export function BrandsSection() {
             {Array.from({ length: 5 }, (_, index) => `skeleton-brand-${index}`).map((key) => (
               <div key={key} className="shrink-0 w-32 md:w-48 text-center">
                 <div className="mb-3 md:mb-4">
-                  <div className="h-12 w-12 md:h-16 md:w-16 mx-auto bg-muted rounded-lg animate-pulse" />
+                  <div className="h-12 w-12 md:h-16 md:w-16 mx-auto bg-accent rounded-lg animate-pulse" />
                 </div>
-                <div className="h-5 md:h-6 w-20 md:w-24 mx-auto bg-muted rounded animate-pulse mb-1" />
-                <div className="h-3 md:h-4 w-28 md:w-32 mx-auto bg-muted rounded animate-pulse" />
+                <div className="h-5 md:h-6 w-20 md:w-24 mx-auto bg-accent rounded animate-pulse mb-1" />
+                <div className="h-3 md:h-4 w-28 md:w-32 mx-auto bg-accent rounded animate-pulse" />
               </div>
             ))}
           </div>
@@ -70,7 +70,7 @@ export function BrandsSection() {
                 )}
               </div>
               <div className="text-base md:text-lg font-semibold text-foreground mb-1">{brand.name}</div>
-              <div className="text-xs md:text-sm text-muted-foreground">{brand.tagline}</div>
+              <div className="text-xs md:text-sm text-foreground/70">{brand.tagline}</div>
             </div>
           ))}
         </div>
