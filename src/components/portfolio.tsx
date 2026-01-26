@@ -78,7 +78,7 @@ export function Portfolio() {
         <div className="flex justify-center">
           <Button
             asChild
-            className="bg-[#A28CBD] hover:bg-[#A28CBD]/90 text-white uppercase px-6 md:px-8 py-4 md:py-6 text-sm md:text-base font-medium"
+            className="bg-[#7660A0] hover:bg-[#7660A0]/90 text-white uppercase px-6 md:px-8 py-4 md:py-6 text-sm md:text-base font-medium"
           >
             <Link href="/portfolio">VER MÁS PROYECTOS</Link>
           </Button>

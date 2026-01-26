@@ -104,7 +104,7 @@ export default function ServiciosPage() {
           <div className="flex justify-center my-12">
             <Button
               asChild
-              className="bg-[#A28CBD] hover:bg-[#A28CBD]/90 text-white uppercase px-8 py-6 text-base font-medium"
+              className="bg-[#7660A0] hover:bg-[#7660A0]/90 text-white uppercase px-8 py-6 text-base font-medium"
             >
               <Link href="/portfolio">VER MÁS PROYECTOS</Link>
             </Button>
